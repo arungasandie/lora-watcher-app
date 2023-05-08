@@ -23,7 +23,7 @@ def connection(client, userdata, flags, rc):
         connected = True
     else:
         # if connection fails, we retry after 5 seconds
-        print("Connection failed. /n Retrying in 5 seconds")
+        print("Connection failed. Retrying in 5 seconds")
         time.sleep(5)
         client.connect(broker_address, broker_port)
 
@@ -42,7 +42,7 @@ try:
     client.connect(broker_address,broker_port) #connect to broker
 except:
     print('connection failed')
-    exit(1) #Should quit or raise flag to quit or retry
+    exit(1) 
 
 
 # using a loop for the network statistics
