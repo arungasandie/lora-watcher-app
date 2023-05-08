@@ -5,15 +5,15 @@
 from paho.mqtt import client as mqtt
 import time
 
-#the MQTT broker host and port details 
-broker_address = "broker.emqx.io"
-broker_port = 1883
-
 #the MQTT client is defined
 client = mqtt.Client()
 
 # and the connection status which is set to false hence client is not yet connected
 connected = False
+
+#the MQTT broker host and port details 
+broker_address = "broker.emqx.io"
+broker_port = 1883
 
 # function for handling the connection event 
 def connection(client, userdata, flags, rc):
@@ -33,7 +33,7 @@ def connection(client, userdata, flags, rc):
         try:
             client.connect(broker_address,broker_port) #connect to broker
         except:
-            print('connection failed')
+            print("connection failed")
             exit(1) 
 
 # function for handling the disconnection event 
@@ -49,7 +49,7 @@ client.on_disconnect = disconnection
 try:
     client.connect(broker_address,broker_port) #connect to broker
 except:
-    print('connection failed')
+    print("connection failed")
     exit(1) 
 
 # using a loop for the network statistics
